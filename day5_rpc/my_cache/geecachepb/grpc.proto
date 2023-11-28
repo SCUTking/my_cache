@@ -1,0 +1,25 @@
+syntax = "proto3"; // 版本声明，使用Protocol Buffers v3版本
+
+option go_package = ".;geecachepb"; // 指定编译生成的文件目录，也可以指定golang包名
+
+package geecachepb;
+
+message Request {
+  string group =1;
+  string key =2;
+}
+
+message Response {
+  bytes value =1;
+}
+
+// 定义服务
+service GroupCache {
+  // 获取
+  rpc Get(Request) returns (Response);
+}
+
+
+
+
+
